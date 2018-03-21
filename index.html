@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <!-- Left side of the monitor -->
+    <div id="leftBody">
+      <!-- Top of the left pokedex including lights -->
+      <div id="topLeft">
+        <div id="leftLight" class="light">
+        </div>
+        <div id="rightLight" class="light">
+        </div>
+      </div>
+      <!-- Bottom part of the left side -->
+      <div id="bottomLeft" class="body">
+        <!-- screen on left side of Pokedex -->
+        <div id="leftScreen" class="screen">
+        </div>
+        <!-- adding an array of buttons -->
+        <div class="buttonArray">
+          <div class="button switch" id="previous">
+          </div>
+          <div class="button" id="sound">
+          </div>
+          <div class="button" id="newPic">
+          </div>
+          <div class="button switch" id="next">
+          </div>
+        </div>
+        <!-- input for finding pokemon in pokedex -->
+        <form>
+          <input type='text' maxlength="11">
+        </form>
+      </div>
+    </div>
+    <!-- Right side of the monitor -->
+    <div id="rightBody" class="body">
+      <!-- screen on the right side of the body -->
+      <div id="rightScreen" class="screen">
+      </div>
+      <!-- Array of buttons -->
+      <div class = "buttonArray">
+        <div class="button" id="stats">
+        </div>
+        <div class="button" id="description">
+        </div>
+        <div class="button" id="attacks">
+        </div>
+      </div>
+      <!-- Pokeball -->
+      <img src="images/pokeball.png" alt="PokeBall">
+    </div>
+  </body>
+</html>
