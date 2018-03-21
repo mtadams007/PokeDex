@@ -1,12 +1,13 @@
 body {
   display: inline;
 }
+
 div {
   border: 1px solid black;
   position: absolute;
 }
 
-.body {
+.frame {
   background-color: red;
   width: 500px;
   height: 800px;
@@ -14,6 +15,21 @@ div {
   border-radius: 0px 0px 30px 30px
 }
 
+.light {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+}
+
+#leftLight {
+  margin-left: 20px;
+  background-color: chartreuse;
+}
+
+#rightLight {
+  margin-left: 100px;
+  background-color: yellow;
+}
 #rightBody {
   margin-left: 500px;
 }
@@ -27,12 +43,15 @@ div {
   height:100px;
   background-color: crimson;
   border-radius: 50px 50px 0px 0px;
+  display: flex;
+  align-items: center;
 }
 
 img {
   width: 100px;
   height: 100px;
-  margin: auto;
+  margin-top: 650px;
+  margin-left: 200px;
 }
 
 .screen {
@@ -105,6 +124,29 @@ img {
   margin-left: 275px;
 }
 
+#stats {
+  background-color: turquoise;
+  height: 75px;
+  width: 75px;
+  border-radius: 5px;
+  margin-left: 50px
+}
+
+#description {
+  background-color: turquoise;
+  height: 75px;
+  width: 75px;
+  border-radius: 5px;
+  margin-left: 200px
+}
+
+#attacks {
+  background-color: turquoise;
+  height: 75px;
+  width: 75px;
+  border-radius: 5px;
+  margin-left: 350px
+}
 form {
   margin-top: 670px;
   margin-left: 100px;
