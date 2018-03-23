@@ -27,17 +27,16 @@ div {
   background: repeating-radial-gradient(
     circle at 20px 20px,
     yellow,
-    #030303);
-    /* #ffde28); */
+    #dd6031);
 }
 
 #rightLight {
   margin-left: 100px;
   /* background-color: yellow; */
-  background: radial-gradient(
-    circle at 0 0,
-    #4c4c9d,
-    #48639c 50px);
+  background: repeating-radial-gradient(
+    circle at 20px 20px,
+    turquoise,
+    #4d9de0);
 }
 #rightBody {
   margin-left: 500px;
@@ -56,11 +55,24 @@ div {
   align-items: center;
 }
 
-img {
+#pokeBall {
   width: 100px;
   height: 100px;
   margin-top: 650px;
   margin-left: 200px;
+}
+
+img {
+  width: 500px;
+  height: 500px;
+  margin-top: -100px;
+  margin-left: -75px;
+}
+
+#pokeName {
+  text-transform: uppercase;
+  margin-top: -75px ;
+  text-align: center;
 }
 
 .screen {
@@ -71,6 +83,20 @@ img {
   border-radius: 25px;
 }
 
+#leftScreen {
+  width: 350px;
+  height: 350px;
+  margin: 25px;
+  border: none;
+
+}
+
+#rightScreen {
+  width: 350px;
+  height: 350px;
+  margin: 25px;
+  border: none;
+}
 .buttonArray {
   border: none;
   width: 500px;
