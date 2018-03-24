@@ -1,24 +1,29 @@
-let army = [];
+let colonel;
+let currentPokemon = 1;
+let isFront = true;
 
 class Trainer {
   constructor(arr) {
     console.log(this);
     let pokeCounter = 0;
     while (pokeCounter<arr.length) {
-      this[pokeCounter+1] = arr[pokeCounter];
+      this[pokeCounter] = arr[pokeCounter];
       pokeCounter++;
     }
   }
   all() {
-    return army;
+    let soldiers = [];
+    let x;
+    for (x in this) {
+      soldiers.push(this[x]);
+    }
+    return soldiers;
   }
   get(name){
-    let i=0;
-    while(i<army.length) {
-      if (name === army[i].name){
-        return army[i];
-      } else{
-        i++;
+    let x;
+    for (x in this) {
+      if (name === this[x].name){
+        return this[x];
       }
     }
   }
@@ -42,6 +47,7 @@ class Pokemon {
 }
 
 let createPoke = (num) => {
+  army = [];
   return $.ajax({
       url: `https://pokeapi.co/api/v2/pokemon/${num}`,
       type: 'GET',
@@ -62,68 +68,68 @@ let createFriends = (arr) => {
   }
 }
 
-createFriends([68,94,129]);
-  //console.log(pokeArray)
-
-
-// let gengar = new Pokemon (createPoke(94))
-      // return [data.name, data.sprites.front_default, data.sprites.back_default, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat, data.name, data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, data.abilities, data.types];
-      //
-$('#previous').click(function(e) {
-  if (currentPokemon === 94) {
-    currentPokemon = 68;
-  } else if (currentPokemon === 129) {
-    currentPokemon = 94;
-  } else {
-    currentPokemon = 129;
-  }
-  changePokemon();
-})
-
-$('#next').click(function(e) {
-  if (currentPokemon === 94) {
-    currentPokemon = 129;
-  } else if (currentPokemon === 129) {
-    currentPokemon = 68;
-  } else {
-    currentPokemon = 94;
-  }
-  changePokemon();
-})
-
-let changePic = () => {
-  $.ajax({
-    url: `https://pokeapi.co/api/v2/pokemon/${currentPokemon}/`,
-    type: 'GET',
-    success: function(data) {
-      $('#leftScreen').html('');
-      $('#leftScreen').append(`<h2 id='pokeName'>${data.name}</h2>`);
-      if (isFront) {
-        $('#leftScreen').prepend(`<img src='${data.sprites.back_default}'>`);
-      } else {
-        $('#leftScreen').prepend(`<img src='${data.sprites.front_default}'>`)
-      }
-      isFront = !isFront;
-    }
-  })
+let makeTrainer = () => {
+  colonel = new Trainer(army);
+  return colonel;
 }
+
+//Lets me know how many pokemon I have
+let count = (obj) => {
+  return Object.keys(obj).length;
+}
+
+// uses modulus to cycle through pokemon
+let whichPokemon = (obj) => {
+  let mod = count(obj);
+  let counter = currentPokemon%mod;
+  console.log(mod);
+  counter = Math.abs(counter);
+  return counter;
+}
+
 
 let changePokemon = () => {
   $('#leftScreen').html('');
   $('#rightScreen').html('');
-  $.ajax({
-    url: `https://pokeapi.co/api/v2/pokemon/${currentPokemon}/`,
-    type: 'GET',
-    success: function(data) {
-      $('#leftScreen').prepend(`<img src='${data.sprites.front_default}' id="pic">`);
-      $('#leftScreen').append(`<h2 id='pokeName'>${data.name}</h2>`);
-      $('#rightScreen').append(`<h3> HP: ${data.stats[5].base_stat}<h3><h3> ATTACK: ${data.stats[4].base_stat}<h3><h3> DEFENSE: ${data.stats[3].base_stat}<h3><h3> SPECIAL ATTACK: ${data.stats[2].base_stat}<h3><h3> SPECIAL DEFENSE: ${data.stats[1].base_stat}<h3><h3> SPEED: ${data.stats[0].base_stat}<h3>`);
-      $('#rightScreen').prepend(`<h2 id='#rightDescriptor'>STATS</h2>`);
-      isFront = true;
-    }
-  })
+  let p = whichPokemon(colonel);
+  $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id="pic">`);
+  $('#leftScreen').append(`<h2 id='pokeName'>${colonel[p].name}</h2>`);
+  $('#rightScreen').append(`<h3> HP: ${colonel[p].hp}<h3><h3> ATTACK: ${colonel[p].attack}<h3><h3> DEFENSE: ${colonel[p].defense}<h3><h3> SPECIAL ATTACK: ${colonel[p].specialAttack}<h3><h3> SPECIAL DEFENSE: ${colonel[p].specialDefense}<h3><h3> SPEED: ${colonel[p].speed}<h3>`);
+  $('#rightScreen').prepend(`<h2 id='#rightDescriptor'>STATS</h2>`);
+  isFront = true;
 }
 
-$('#newPic').click(function(e) {
+createFriends([68,94,129]);
 
+//Turns on pokedex and creates my trainer
+$('#powerButton').click(function(powerOn){
+  makeTrainer();
+})
+
+$('#previous').click(function(e) {
+  currentPokemon--;
+  changePokemon();
+})
+
+$('#next').click(function(e) {
+  currentPokemon++;
+  changePokemon();
+})
+
+let changePic = () => {
+  $('#leftScreen').html('');
+  let p = whichPokemon(colonel);
+  $('#leftScreen').append(`<h2 id='pokeName'>${colonel[p].name}</h2>`);
+  if (isFront) {
+    $('#leftScreen').prepend(`<img src='${colonel[p].backPic}'>`);
+  } else {
+    $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}'>`)
+  }
+  isFront = !isFront;
+}
+
+
+
+$('#newPic').click(function(e) {
+  changePic();
 })

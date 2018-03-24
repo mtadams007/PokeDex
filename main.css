@@ -168,12 +168,20 @@ img {
   margin-left: 50px
 }
 
-#description {
+#powerButton {
   background-color: turquoise;
   height: 75px;
   width: 75px;
   border-radius: 5px;
-  margin-left: 200px
+  margin-left: 200px;
+}
+
+#powerButtonPic {
+  margin: auto;
+  margin-top: 5px;
+  display: block;
+  height: 60px;
+  width: 60px;
 }
 
 #attacks {
