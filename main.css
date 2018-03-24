@@ -1,5 +1,6 @@
 body {
   display: inline;
+  text-transform: uppercase;
 }
 
 div {
@@ -184,8 +185,7 @@ img {
   width: 60px;
 }
 
-#attacks {
-  /* background-color: turquoise; */
+#abilities {
   background: repeating-radial-gradient(
     circle at 20px 20px,
     turquoise,
@@ -195,6 +195,7 @@ img {
   border-radius: 5px;
   margin-left: 350px
 }
+
 form {
   margin-top: 670px;
   margin-left: 100px;

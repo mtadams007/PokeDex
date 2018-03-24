@@ -1,7 +1,9 @@
+//variables that get pulled later
 let colonel;
 let currentPokemon = 1;
 let isFront = true;
 
+//construct a trainer
 class Trainer {
   constructor(arr) {
     console.log(this);
@@ -29,6 +31,7 @@ class Trainer {
   }
 }
 
+//construct a pokemon
 class Pokemon {
   constructor(arr){
     this.name = arr[0];
@@ -46,6 +49,7 @@ class Pokemon {
   }
 }
 
+//creates one pokemon through ajax
 let createPoke = (num) => {
   army = [];
   return $.ajax({
@@ -60,6 +64,7 @@ let createPoke = (num) => {
   })
 }
 
+//creates the array of pokemon to make trainer
 let createFriends = (arr) => {
   let i = 0;
   while (i<arr.length) {
@@ -68,6 +73,7 @@ let createFriends = (arr) => {
   }
 }
 
+//made to create trainer after everything loads
 let makeTrainer = () => {
   colonel = new Trainer(army);
   return colonel;
@@ -82,23 +88,22 @@ let count = (obj) => {
 let whichPokemon = (obj) => {
   let mod = count(obj);
   let counter = currentPokemon%mod;
-  console.log(mod);
   counter = Math.abs(counter);
   return counter;
 }
 
-
+//how to change pokemon
 let changePokemon = () => {
   $('#leftScreen').html('');
   $('#rightScreen').html('');
   let p = whichPokemon(colonel);
   $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id="pic">`);
   $('#leftScreen').append(`<h2 id='pokeName'>${colonel[p].name}</h2>`);
-  $('#rightScreen').append(`<h3> HP: ${colonel[p].hp}<h3><h3> ATTACK: ${colonel[p].attack}<h3><h3> DEFENSE: ${colonel[p].defense}<h3><h3> SPECIAL ATTACK: ${colonel[p].specialAttack}<h3><h3> SPECIAL DEFENSE: ${colonel[p].specialDefense}<h3><h3> SPEED: ${colonel[p].speed}<h3>`);
-  $('#rightScreen').prepend(`<h2 id='#rightDescriptor'>STATS</h2>`);
+  displayStats(colonel[p]);
   isFront = true;
 }
 
+//creates my army
 createFriends([68,94,129]);
 
 //Turns on pokedex and creates my trainer
@@ -106,16 +111,19 @@ $('#powerButton').click(function(powerOn){
   makeTrainer();
 })
 
+//changes pokemon backwards
 $('#previous').click(function(e) {
   currentPokemon--;
   changePokemon();
 })
 
+//changes pokemon forwards
 $('#next').click(function(e) {
   currentPokemon++;
   changePokemon();
 })
 
+//Changes picture of pokemon from front to back
 let changePic = () => {
   $('#leftScreen').html('');
   let p = whichPokemon(colonel);
@@ -128,8 +136,68 @@ let changePic = () => {
   isFront = !isFront;
 }
 
-
-
+//command to change picture
 $('#newPic').click(function(e) {
   changePic();
 })
+
+//pull abilities from pokemon
+let getAbilities = (obj) => {
+  let skillz = [];
+  let i = 0;
+  while (i<obj.abilities.length) {
+    let ability = obj.abilities[i].ability.name;
+    skillz.push(ability);
+    i++;
+  }
+  return skillz;
+}
+
+//shows the stats of a pokemon
+let displayStats = (obj) => {
+  $('#rightScreen').html('');
+  $('#rightScreen').append(`<h3> HP: ${obj.hp}</h3><h3> ATTACK: ${obj.attack}</h3><h3> DEFENSE: ${obj.defense}</h3><h3> SPECIAL ATTACK: ${obj.specialAttack}</h3><h3> SPECIAL DEFENSE: ${obj.specialDefense}</h3><h3> SPEED: ${obj.speed}</h3>`);
+  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>STATS</h1>`)
+}
+
+//shows abilities upon clicking button
+$('#abilities').click(function(e) {
+  $('#rightScreen').html('');
+  let p = whichPokemon(colonel);
+  let skillz = getAbilities(colonel[p]);
+  console.log(skillz);
+  if (skillz.length === 3) {
+    $('#rightScreen').html(`<h3>${skillz[2]}</h3><h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
+  } else if (skillz.length === 2) {
+    $('#rightScreen').html(`<h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
+  } else {
+    $('#rightScreen').html(`<h3>${skillz[0]}</h3>`);
+  }
+  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>ABILITIES</h1>`)
+})
+
+$('#stats').click(function(e) {
+  let p = whichPokemon(colonel);
+  displayStats(colonel[p]);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
