@@ -3,14 +3,14 @@ let colonel;
 let currentPokemon = 1;
 let isFront = true;
 
+
 //construct a trainer
 class Trainer {
   constructor(arr) {
-    console.log(this);
-    let pokeCounter = 0;
-    while (pokeCounter<arr.length) {
-      this[pokeCounter] = arr[pokeCounter];
-      pokeCounter++;
+    let i = 0;
+    while (i<arr.length) {
+      this[i] = arr[i];
+      i++;
     }
   }
   all() {
@@ -57,7 +57,7 @@ let createPoke = (num) => {
       type: 'GET',
       success: function(data) {
         pokeArray = [data.name, data.id, data.sprites.front_default, data.sprites.back_default, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat,  data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, data.abilities, data.types];
-        console.log('heya')
+        console.log('heya');
         friend = new Pokemon(pokeArray);
         army.push(friend);
       }
@@ -165,7 +165,6 @@ $('#abilities').click(function(e) {
   $('#rightScreen').html('');
   let p = whichPokemon(colonel);
   let skillz = getAbilities(colonel[p]);
-  console.log(skillz);
   if (skillz.length === 3) {
     $('#rightScreen').html(`<h3>${skillz[2]}</h3><h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
   } else if (skillz.length === 2) {
@@ -176,14 +175,47 @@ $('#abilities').click(function(e) {
   $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>ABILITIES</h1>`)
 })
 
+//click on stats to display
 $('#stats').click(function(e) {
   let p = whichPokemon(colonel);
   displayStats(colonel[p]);
 })
 
+//plays the displayed pokemons sound
+$('#sound').click(function(e) {
+  let p = whichPokemon(colonel);
+  let soundFile = `${colonel[p].number}.ogg`;
+  let cry = new Audio(`audio/${soundFile}`);
+  cry.play();
+})
 
 
+$('#search').submit(function(e) {
+  e.preventDefault();
+  let pokeSearch = $('input').val();
+  pokeSearch = pokeSearch.toLowerCase();
+  let foundPokemon = findPokemon(colonel, pokeSearch);
+  if (foundPokemon === 'bummer dude') {
+    $('input').val("NOT FOUND")
+  } else {
+    changePokemon();
+    $('input').val("")
+  }
+})
 
+//function to find a pokemon by name given a trainer and a name
+let findPokemon = (obj,str) => {
+  let i = 0
+  let lengthOfPokemon = count(obj);
+  while (i<lengthOfPokemon) {
+    if (str === obj[i].name) {
+      currentPokemon = i;
+      return obj.get(str);
+    }
+    i++;
+  }
+  return 'bummer dude';
+}
 
 
 
