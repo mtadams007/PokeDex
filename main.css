@@ -107,14 +107,31 @@ img {
   align-items: center;
 }
 
-/* .button {
-  border-radius: 100px;
-  height:75px;
-  width:75px;
-  background-color: blue;
-  justify-content: space-around;
-} */
+.rightButton {
+  background-color: turquoise;
+  height: 75px;
+  width: 75px;
+  border-radius: 5px;
+  box-shadow: 0 5px #598381;
+}
 
+.rightButton:active {
+  box-shadow: 0 0 #598381;
+  top: 17px;
+}
+.leftButton {
+  background-color: blue;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin-left: 150px;
+  box-shadow: 0 5px #247ba0
+}
+
+.leftButton:active {
+  box-shadow: 0 0 #247ba0;
+  top: 17px;
+}
 /* .switch {
   border: none;
   background-color: green;
@@ -145,19 +162,17 @@ img {
 	border-bottom: 40px solid transparent;
 }
 
-#sound {
+/* #sound {
   background-color: blue;
   height: 75px;
   width: 75px;
-  border-radius: 5px;
+  border-radius: 50%;
   margin-left: 150px;
-}
+  box-shadow: 0 5px #247ba0
+} */
+
 
 #newPic {
-  background-color: blue;
-  height: 75px;
-  width: 75px;
-  border-radius: 5px;
   margin-left: 275px;
 }
 
@@ -207,4 +222,21 @@ input {
   font-size: 40px;
   width: 300px;
   text-transform: uppercase;
+}
+
+.btn-2j {
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	padding: 0;
+}
+
+.btn-2j:hover {
+	box-shadow: 0 8px #ab3c3c;
+	top: -2px;
+}
+
+.btn-2j:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
 }

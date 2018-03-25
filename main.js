@@ -2,6 +2,7 @@
 let colonel;
 let currentPokemon = 1;
 let isFront = true;
+let isOff = true;
 
 
 //construct a trainer
@@ -108,7 +109,15 @@ createFriends([68,94,129]);
 
 //Turns on pokedex and creates my trainer
 $('#powerButton').click(function(powerOn){
-  makeTrainer();
+  if (isOff) {
+    makeTrainer();
+    changePokemon();
+  } else {
+    colonel = {};
+    $('#leftScreen').html('');
+    $('#rightScreen').html('');
+  }
+  isOff = !isOff;
 })
 
 //changes pokemon backwards
