@@ -1,9 +1,15 @@
-//variables that get pulled later
+//VARIABLES
+
+//colonel is my trainer
 let colonel;
-let currentPokemon = 1;
+//the pokemon that is being displayed
+let currentPokemon = 0;
+//which way the pokemon is facing for the switch pic button
 let isFront = true;
+//checks if the pokedex is on or off
 let isOff = true;
 
+// CLASSES
 
 //construct a trainer
 class Trainer {
@@ -50,6 +56,8 @@ class Pokemon {
   }
 }
 
+//AJAX FUNCTION
+
 //creates one pokemon through ajax
 let createPoke = (num) => {
   army = [];
@@ -59,11 +67,104 @@ let createPoke = (num) => {
       success: function(data) {
         pokeArray = [data.name, data.id, data.sprites.front_default, data.sprites.back_default, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat,  data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, data.abilities, data.types];
         console.log('heya');
+        //creates new pokemon and pushes to the army
         friend = new Pokemon(pokeArray);
         army.push(friend);
       }
   })
 }
+
+//BUTTON RULES
+
+// LEFT ARRAY OF buttons
+
+//changes pokemon backwards
+$('#previous').click(function(e) {
+  currentPokemon--;
+  changePokemon();
+})
+
+//changes pokemon forwards
+$('#next').click(function(e) {
+  currentPokemon++;
+  changePokemon();
+})
+
+//plays the displayed pokemons sound
+$('#sound').click(function(e) {
+  let p = whichPokemon(colonel);
+  let soundFile = `${colonel[p].number}.ogg`;
+  let cry = new Audio(`audio/${soundFile}`);
+  cry.play();
+})
+
+//click to change picture
+$('#newPic').click(function(e) {
+  changePic();
+})
+
+
+$('#search').submit(function(e) {
+  e.preventDefault();
+  let pokeSearch = $('input').val();
+  pokeSearch = pokeSearch.toLowerCase();
+  let foundPokemon = findPokemon(colonel, pokeSearch);
+  if (foundPokemon === 'bummer dude') {
+    $('input').val("NOT FOUND")
+  } else {
+    changePokemon();
+    $('input').val("")
+  }
+})
+
+// RIGHT ARRAY OF BUTTONS
+
+//shows abilities upon clicking button
+$('#abilities').click(function(e) {
+  $('#rightScreen').html('');
+  let p = whichPokemon(colonel);
+  let skillz = getAbilities(colonel[p]);
+  if (skillz.length === 3) {
+    $('#rightScreen').html(`<h3>${skillz[2]}</h3><h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
+  } else if (skillz.length === 2) {
+    $('#rightScreen').html(`<h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
+  } else {
+    $('#rightScreen').html(`<h3>${skillz[0]}</h3>`);
+  }
+  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>ABILITIES</h1>`)
+})
+
+//Turns on pokedex and creates my trainer
+$('#powerButton').click(function(powerOn){
+  if (isOff) {
+    makeTrainer();
+    changePokemon();
+  } else {
+    colonel = {};
+    $('#leftScreen').html('');
+    $('#rightScreen').html('');
+    currentPokemon = 0;
+  }
+  isOff = !isOff;
+})
+
+//click on stats to display
+$('#stats').click(function(e) {
+  let p = whichPokemon(colonel);
+  displayStats(colonel[p]);
+})
+
+
+
+
+
+
+
+
+
+
+//SUB FUNCTIONS
+
 
 //creates the array of pokemon to make trainer
 let createFriends = (arr) => {
@@ -74,8 +175,17 @@ let createFriends = (arr) => {
   }
 }
 
+//Puts pokemon in order by their id number
+let sortFriends = (arr) => {
+  arr.sort(function(a, b){
+    return a.number-b.number
+  })
+}
+
 //made to create trainer after everything loads
 let makeTrainer = () => {
+  //first sort the pokemon by id number
+  sortFriends(army);
   colonel = new Trainer(army);
   return colonel;
 }
@@ -104,34 +214,6 @@ let changePokemon = () => {
   isFront = true;
 }
 
-//creates my army
-createFriends([68,94,129]);
-
-//Turns on pokedex and creates my trainer
-$('#powerButton').click(function(powerOn){
-  if (isOff) {
-    makeTrainer();
-    changePokemon();
-  } else {
-    colonel = {};
-    $('#leftScreen').html('');
-    $('#rightScreen').html('');
-  }
-  isOff = !isOff;
-})
-
-//changes pokemon backwards
-$('#previous').click(function(e) {
-  currentPokemon--;
-  changePokemon();
-})
-
-//changes pokemon forwards
-$('#next').click(function(e) {
-  currentPokemon++;
-  changePokemon();
-})
-
 //Changes picture of pokemon from front to back
 let changePic = () => {
   $('#leftScreen').html('');
@@ -145,10 +227,12 @@ let changePic = () => {
   isFront = !isFront;
 }
 
-//command to change picture
-$('#newPic').click(function(e) {
-  changePic();
-})
+//shows the stats of a pokemon
+let displayStats = (obj) => {
+  $('#rightScreen').html('');
+  $('#rightScreen').append(`<h3> HP: ${obj.hp}</h3><h3> ATTACK: ${obj.attack}</h3><h3> DEFENSE: ${obj.defense}</h3><h3> SPECIAL ATTACK: ${obj.specialAttack}</h3><h3> SPECIAL DEFENSE: ${obj.specialDefense}</h3><h3> SPEED: ${obj.speed}</h3>`);
+  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>STATS</h1>`)
+}
 
 //pull abilities from pokemon
 let getAbilities = (obj) => {
@@ -161,56 +245,6 @@ let getAbilities = (obj) => {
   }
   return skillz;
 }
-
-//shows the stats of a pokemon
-let displayStats = (obj) => {
-  $('#rightScreen').html('');
-  $('#rightScreen').append(`<h3> HP: ${obj.hp}</h3><h3> ATTACK: ${obj.attack}</h3><h3> DEFENSE: ${obj.defense}</h3><h3> SPECIAL ATTACK: ${obj.specialAttack}</h3><h3> SPECIAL DEFENSE: ${obj.specialDefense}</h3><h3> SPEED: ${obj.speed}</h3>`);
-  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>STATS</h1>`)
-}
-
-//shows abilities upon clicking button
-$('#abilities').click(function(e) {
-  $('#rightScreen').html('');
-  let p = whichPokemon(colonel);
-  let skillz = getAbilities(colonel[p]);
-  if (skillz.length === 3) {
-    $('#rightScreen').html(`<h3>${skillz[2]}</h3><h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
-  } else if (skillz.length === 2) {
-    $('#rightScreen').html(`<h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
-  } else {
-    $('#rightScreen').html(`<h3>${skillz[0]}</h3>`);
-  }
-  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>ABILITIES</h1>`)
-})
-
-//click on stats to display
-$('#stats').click(function(e) {
-  let p = whichPokemon(colonel);
-  displayStats(colonel[p]);
-})
-
-//plays the displayed pokemons sound
-$('#sound').click(function(e) {
-  let p = whichPokemon(colonel);
-  let soundFile = `${colonel[p].number}.ogg`;
-  let cry = new Audio(`audio/${soundFile}`);
-  cry.play();
-})
-
-
-$('#search').submit(function(e) {
-  e.preventDefault();
-  let pokeSearch = $('input').val();
-  pokeSearch = pokeSearch.toLowerCase();
-  let foundPokemon = findPokemon(colonel, pokeSearch);
-  if (foundPokemon === 'bummer dude') {
-    $('input').val("NOT FOUND")
-  } else {
-    changePokemon();
-    $('input').val("")
-  }
-})
 
 //function to find a pokemon by name given a trainer and a name
 let findPokemon = (obj,str) => {
@@ -226,19 +260,7 @@ let findPokemon = (obj,str) => {
   return 'bummer dude';
 }
 
+//CALLS FOR PAGE
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+//creates my army for the Pokedex
+createFriends([68,94,129]);
