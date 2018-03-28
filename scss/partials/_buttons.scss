@@ -1,0 +1,88 @@
+.buttonArray {
+  border: none;
+  width: 500px;
+  height: 100px;
+  margin-top: 500px;
+  display: flex;
+  align-items: center;
+  .leftButton {
+    background-color: $leftButtonColor;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-left: 150px;
+    box-shadow: 0 5px $leftButtonColorShadow;
+    &:active {
+      box-shadow: 0 0 $leftButtonColorShadow;
+      top: 17px;
+    }
+  }
+  .rightButton {
+    background-color: $rightButtonColor;
+    height: 75px;
+    width: 75px;
+    border-radius: 5px;
+    box-shadow: 0 5px $rightButtonColorShadow;
+    &:active {
+      box-shadow: 0 0 $rightButtonColorShadow;
+      top: 17px;
+    }
+  }
+  #previous {
+    border: none;
+    /* float:left; */
+    margin-left: 25px;
+    width: 0px;
+    height: 0px;
+    border-top: 40px solid transparent;
+  	border-right: 80px solid $switchButtonColor;
+  	border-bottom: 40px solid transparent;
+  }
+
+  #next {
+    border: none;
+    margin-left: 395px;
+    width: 0px;
+    height: 0px;
+    border-top: 40px solid transparent;
+  	border-left: 80px solid $switchButtonColor;
+  	border-bottom: 40px solid transparent;
+  }
+
+  #newPic {
+    margin-left: 275px;
+  }
+
+  #abilities {
+    margin-left: 350px
+  }
+
+  #stats {
+    margin-left: 50px
+  }
+
+  #powerButton {
+    margin-left: 200px;
+  }
+
+  .material-icons {
+    margin-left: 7px;
+    margin-top: 7px;
+  }
+}
+
+form {
+  margin-top: 670px;
+  margin-left: 100px;
+  width: 300px;
+  font-size: 40px;
+  height: 40px;
+  #searchField {
+    border-bottom: none;
+    font-size: 25px;
+    width: 300px;
+    text-transform: uppercase;
+    background-color: $screenColor;
+    font-family: pokemon-font;
+  }
+}

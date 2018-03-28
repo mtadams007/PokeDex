@@ -1,0 +1,22 @@
+.light {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+}
+
+#leftLight {
+  margin-left: 20px;
+  background: repeating-radial-gradient(
+    circle at 20px 20px,
+    yellow,
+    #dd6031);
+}
+
+#rightLight {
+  margin-left: 100px;
+  /* background-color: yellow; */
+  background: repeating-radial-gradient(
+    circle at 20px 20px,
+    turquoise,
+    #4d9de0);
+}
