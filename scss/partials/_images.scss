@@ -11,3 +11,12 @@ img {
   margin-top: -50px;
   margin-left: -20px;
 }
+
+#pic {
+  animation: appear 5s;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

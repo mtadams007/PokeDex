@@ -155,14 +155,6 @@ $('#stats').click(function(e) {
 })
 
 
-
-
-
-
-
-
-
-
 //SUB FUNCTIONS
 
 
@@ -208,7 +200,7 @@ let changePokemon = () => {
   $('#leftScreen').html('');
   $('#rightScreen').html('');
   let p = whichPokemon(colonel);
-  $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}'>`);
+  $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id='pic'>`);
   $('#leftScreen').append(`<h2 id='pokeName'>${colonel[p].name}</h2>`);
   displayStats(colonel[p]);
   isFront = true;
@@ -263,4 +255,4 @@ let findPokemon = (obj,str) => {
 //CALLS FOR PAGE
 
 //creates my army for the Pokedex
-createFriends([68,94,129]);
+createFriends([68,94,'magikarp']);

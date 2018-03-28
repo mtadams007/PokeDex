@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Pokedex</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="node_modules/pokemon-font/css/pokemon-font.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <!-- Left side of the monitor -->
@@ -28,15 +31,17 @@
           <div class="button switch" id="previous">
           </div>
           <div class="leftButton" id="sound">
+            <i class="medium material-icons">volume_up</i>
           </div>
           <div class="leftButton" id="newPic">
+            <i class="medium material-icons">cached</i>
           </div>
           <div class="button switch" id="next">
           </div>
         </div>
         <!-- input for finding pokemon in pokedex -->
-        <form id="search">
-          <input type='text' maxlength="11">
+        <form id="search" autocomplete="off">
+          <input id="searchField" type='text' maxlength="11">
         </form>
       </div>
     </div>
@@ -51,11 +56,13 @@
       <!-- Array of buttons -->
       <div class = "buttonArray">
         <div class="rightButton" id="stats">
+          <p>stats</p>
         </div>
         <div class="rightButton" id="powerButton">
-          <img src="images/powerbutton.png" id="powerButtonPic">
+          <i class="medium material-icons">power_settings_new</i>
         </div>
         <div class="rightButton" id="abilities">
+          <p>ABLTY</p>
         </div>
       </div>
       <!-- Pokeball -->
