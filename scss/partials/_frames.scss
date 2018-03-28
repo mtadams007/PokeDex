@@ -1,0 +1,49 @@
+body {
+  display: inline;
+  text-transform: uppercase;
+  font-family: pokemon-font;
+  .frame {
+    background-color: $mainColor;
+    width: 500px;
+    height: 800px;
+    margin-top: 100px;
+    border-radius: 0px 0px 30px 30px
+  }
+  div {
+    border: 1px solid black;
+    position: absolute;
+  }
+  .screen {
+    width: 400px;
+    height: 400px;
+    background-color: $screenColor;
+    margin: 50px;
+    border-radius: 25px;
+  }
+  #rightBody {
+    margin-left: 500px;
+    #rightScreen {
+      @extend %screenDisplay;
+
+    }
+  }
+  #topLeft {
+    width: 500px;
+    height:100px;
+    background-color: $offMainColor;
+    border-radius: 50px 50px 0px 0px;
+    display: flex;
+    align-items: center;
+  }
+  #leftBody {
+    float: left;
+    #leftScreen {
+      @extend %screenDisplay;
+      #pokeName {
+        text-transform: uppercase;
+        margin-top: -50px ;
+        text-align: center;
+      }
+    }
+  }
+}

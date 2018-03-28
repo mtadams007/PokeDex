@@ -1,4 +1,4 @@
-#leftScreen, #rightScreen {
+body #rightBody #rightScreen, body #leftBody #leftScreen {
   width: 350px;
   height: 350px;
   margin: 25px;
@@ -8,33 +8,46 @@ body {
   display: inline;
   text-transform: uppercase;
   font-family: pokemon-font; }
-  body h3 {
-    font-size: 15px; }
-
-h2 {
-  font-size: 30px; }
-
-div {
-  border: 1px solid black;
-  position: absolute; }
+  body .frame {
+    background-color: red;
+    width: 500px;
+    height: 800px;
+    margin-top: 100px;
+    border-radius: 0px 0px 30px 30px; }
+  body div {
+    border: 1px solid black;
+    position: absolute; }
+  body .screen {
+    width: 400px;
+    height: 400px;
+    background-color: honeydew;
+    margin: 50px;
+    border-radius: 25px; }
+  body #rightBody {
+    margin-left: 500px; }
+  body #topLeft {
+    width: 500px;
+    height: 100px;
+    background-color: crimson;
+    border-radius: 50px 50px 0px 0px;
+    display: flex;
+    align-items: center; }
+  body #leftBody {
+    float: left; }
+    body #leftBody #leftScreen #pokeName {
+      text-transform: uppercase;
+      margin-top: -50px;
+      text-align: center; }
 
 h1 {
   margin-top: -12px;
   font-size: 30px; }
 
-.frame {
-  background-color: red;
-  width: 500px;
-  height: 800px;
-  margin-top: 100px;
-  border-radius: 0px 0px 30px 30px; }
+h3 {
+  font-size: 15px; }
 
-.screen {
-  width: 400px;
-  height: 400px;
-  background-color: honeydew;
-  margin: 50px;
-  border-radius: 25px; }
+h2 {
+  font-size: 30px; }
 
 .light {
   width: 70px;
@@ -50,42 +63,6 @@ h1 {
   /* background-color: yellow; */
   background: repeating-radial-gradient(circle at 20px 20px, turquoise, #4d9de0); }
 
-/* MAIN BODY OF POKEDEX */
-#rightBody {
-  margin-left: 500px; }
-
-#leftBody {
-  float: left; }
-
-/* LITTLE PIECE STICKING OUT ON TOP */
-#topLeft {
-  width: 500px;
-  height: 100px;
-  background-color: crimson;
-  border-radius: 50px 50px 0px 0px;
-  display: flex;
-  align-items: center; }
-
-/* POKEBALL IMAGE */
-#pokeBall {
-  width: 100px;
-  height: 100px;
-  margin-top: 650px;
-  margin-left: 200px; }
-
-/* POKEMON DISPLAYS */
-img {
-  width: 400px;
-  height: 400px;
-  margin-top: -50px;
-  margin-left: -20px; }
-
-#pokeName {
-  text-transform: uppercase;
-  margin-top: -50px;
-  text-align: center; }
-
-/* BUTTONS */
 .buttonArray {
   border: none;
   width: 500px;
@@ -93,81 +70,78 @@ img {
   margin-top: 500px;
   display: flex;
   align-items: center; }
+  .buttonArray .leftButton {
+    background-color: yellow;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-left: 150px;
+    box-shadow: 0 5px orange; }
+    .buttonArray .leftButton:active {
+      box-shadow: 0 0 orange;
+      top: 17px; }
+  .buttonArray .rightButton {
+    background-color: turquoise;
+    height: 75px;
+    width: 75px;
+    border-radius: 5px;
+    box-shadow: 0 5px #598381; }
+    .buttonArray .rightButton:active {
+      box-shadow: 0 0 #598381;
+      top: 17px; }
+  .buttonArray #previous {
+    border: none;
+    /* float:left; */
+    margin-left: 25px;
+    width: 0px;
+    height: 0px;
+    border-top: 40px solid transparent;
+    border-right: 80px solid blue;
+    border-bottom: 40px solid transparent; }
+  .buttonArray #next {
+    border: none;
+    margin-left: 395px;
+    width: 0px;
+    height: 0px;
+    border-top: 40px solid transparent;
+    border-left: 80px solid blue;
+    border-bottom: 40px solid transparent; }
+  .buttonArray #newPic {
+    margin-left: 275px; }
+  .buttonArray #abilities {
+    margin-left: 350px; }
+  .buttonArray #stats {
+    margin-left: 50px; }
+  .buttonArray #powerButton {
+    margin-left: 200px; }
+  .buttonArray .material-icons {
+    margin-left: 7px;
+    margin-top: 7px; }
 
-/* BUTTONS ON LEFT */
-.leftButton {
-  background-color: yellow;
-  height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  margin-left: 150px;
-  box-shadow: 0 5px orange; }
-
-.leftButton:active {
-  box-shadow: 0 0 orange;
-  top: 17px; }
-
-#previous {
-  border: none;
-  /* float:left; */
-  margin-left: 25px;
-  width: 0px;
-  height: 0px;
-  border-top: 40px solid transparent;
-  border-right: 80px solid blue;
-  border-bottom: 40px solid transparent; }
-
-#next {
-  border: none;
-  margin-left: 395px;
-  width: 0px;
-  height: 0px;
-  border-top: 40px solid transparent;
-  border-left: 80px solid blue;
-  border-bottom: 40px solid transparent; }
-
-#newPic {
-  margin-left: 275px; }
-
-#abilities {
-  margin-left: 350px; }
-
-/* BUTTONS ON RIGHT */
-.rightButton {
-  background-color: turquoise;
-  height: 75px;
-  width: 75px;
-  border-radius: 5px;
-  box-shadow: 0 5px #598381; }
-
-.rightButton:active {
-  box-shadow: 0 0 #598381;
-  top: 17px; }
-
-#stats {
-  margin-left: 50px; }
-
-#powerButton {
-  margin-left: 200px; }
-
-.material-icons {
-  margin-left: 7px;
-  margin-top: 7px; }
-
-/* INPUT FOR SEARCHING POKEMON */
 form {
   margin-top: 670px;
   margin-left: 100px;
   width: 300px;
   font-size: 40px;
   height: 40px; }
+  form #searchField {
+    border-bottom: none;
+    font-size: 25px;
+    width: 300px;
+    text-transform: uppercase;
+    background-color: honeydew;
+    font-family: pokemon-font; }
 
-#searchField {
-  border-bottom: none;
-  font-size: 25px;
-  width: 300px;
-  text-transform: uppercase;
-  background-color: honeydew;
-  font-family: pokemon-font; }
+#pokeBall {
+  width: 100px;
+  height: 100px;
+  margin-top: 650px;
+  margin-left: 200px; }
+
+img {
+  width: 400px;
+  height: 400px;
+  margin-top: -50px;
+  margin-left: -20px; }
 
 /*# sourceMappingURL=main.css.map */
