@@ -200,7 +200,7 @@ let changePokemon = () => {
   $('#leftScreen').html('');
   $('#rightScreen').html('');
   let p = whichPokemon(colonel);
-  $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id="pic">`);
+  $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}'>`);
   $('#leftScreen').append(`<h2 id='pokeName'>${colonel[p].name}</h2>`);
   displayStats(colonel[p]);
   isFront = true;
