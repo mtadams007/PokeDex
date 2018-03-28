@@ -62,6 +62,7 @@
 
   #powerButton {
     margin-left: 200px;
+    backface-visibility: hidden;
   }
 
   .material-icons {

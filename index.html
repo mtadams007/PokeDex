@@ -13,9 +13,13 @@
     <div id="leftBody">
       <!-- Top of the left pokedex including lights -->
       <div id="topLeft">
-        <div id="leftLight" class="light">
+        <div id="blueLight">
         </div>
-        <div id="rightLight" class="light">
+        <div id="redLight">
+        </div>
+        <div id="yellowLight">
+        </div>
+        <div id="greenLight">
         </div>
       </div>
       <!-- Bottom part of the left side -->
@@ -46,27 +50,33 @@
       </div>
     </div>
     <!-- Right side of the monitor -->
-    <div id="rightBody" class="frame">
-      <!-- screen on the right side of the body -->
-      <div class="screen">
-        <div id="rightScreen">
-          <h1 id="rightDescriptor"></h2>
+
+    <div id="rightBody" class="close frame">
+      <div class="hideMe" id="front">
+        <!-- screen on the right side of the body -->
+        <div class="screen hideMe">
+          <div id="rightScreen">
+            <h1 id="rightDescriptor"></h1>
+          </div>
         </div>
+          <!-- Array of buttons -->
+          <div class = "buttonArray hideMe">
+            <div class="rightButton hideMe" id="stats">
+              <p>stats</p>
+            </div>
+            <div id="powerButton">
+              <i class="medium material-icons">power_settings_new</i>
+            </div>
+            <div class="rightButton hideMe" id="abilities">
+              <p>ABLTY</p>
+            </div>
+          </div>
+          <!-- Pokeball -->
+          <img src="images/pokeball.png" alt="PokeBall" id="pokeBall">
       </div>
-      <!-- Array of buttons -->
-      <div class = "buttonArray">
-        <div class="rightButton" id="stats">
-          <p>stats</p>
-        </div>
-        <div id="powerButton">
-          <i class="medium material-icons">power_settings_new</i>
-        </div>
-        <div class="rightButton" id="abilities">
-          <p>ABLTY</p>
-        </div>
+      <div class="oneSide" id="back">
       </div>
-      <!-- Pokeball -->
-      <img src="images/pokeball.png" alt="PokeBall" id="pokeBall">
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>

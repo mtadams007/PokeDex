@@ -1,0 +1,25 @@
+@keyframes appear {
+  0% {width: 10%;
+  height: 10%;
+  margin-top: 300px;
+}
+  50% {margin-left: 30px;}
+  100% {width: 115%;
+  height: 115%;
+  margin-top: -50px;
+  margin-left: -20px;}
+}
+
+.close {
+  transition: transform 5s;
+  transform: rotateY(-180deg);
+  transform-origin: 0% 100%;
+  transform-style: preserve-3d;
+}
+
+.open {
+  transition: transform 5s;
+  transform: rotateY(0deg);
+  transform-origin: 0% 0%;
+  transform-style: preserve-3d;
+}

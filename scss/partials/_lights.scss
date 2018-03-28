@@ -1,22 +1,41 @@
-.light {
-  width: 70px;
-  height: 70px;
+%light {
+  width: 30px;
+  height: 30px;
   border-radius: 100px;
+  margin-top: -20px;
 }
 
-#leftLight {
-  margin-left: 20px;
+#redLight {
+  @extend %light;
+  margin-left: 100px;
   background: repeating-radial-gradient(
-    circle at 20px 20px,
+    circle at 10px 10px,
+    	 #ffb3b3,
+    red);
+}
+
+#yellowLight {
+  @extend %light;
+  margin-left: 140px;
+  background: repeating-radial-gradient(
+    circle at 10px 10px,
     yellow,
     #dd6031);
 }
 
-#rightLight {
-  margin-left: 100px;
-  /* background-color: yellow; */
+#greenLight {
+  @extend %light;
+  margin-left: 180px;
   background: repeating-radial-gradient(
-    circle at 20px 20px,
-    turquoise,
-    #4d9de0);
+    circle at 10px 10px,
+    lime,
+    green);
+}
+#blueLight {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  margin-left: 20px;
+  /* background-color: yellow; */
+  background: radial-gradient(circle, $blueLightCenter, $blueLightSecond, $blueLightOutside);
 }
