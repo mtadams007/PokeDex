@@ -263,4 +263,4 @@ let findPokemon = (obj,str) => {
 //CALLS FOR PAGE
 
 //creates my army for the Pokedex
-createFriends([68,94,129]);
+createFriends([68,94,'magikarp']);

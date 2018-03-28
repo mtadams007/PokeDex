@@ -1,3 +1,6 @@
+@import "partials/colors";
+@import "partials/dimensions";
+
 body {
   display: inline;
   text-transform: uppercase;
@@ -8,12 +11,29 @@ div {
   position: absolute;
 }
 
+
 .frame {
-  background-color: red;
+  background-color: $mainColor;
   width: 500px;
   height: 800px;
   margin-top: 100px;
   border-radius: 0px 0px 30px 30px
+}
+
+.screen {
+  width: 400px;
+  height: 400px;
+  background-color: $screenColor;
+  margin: 50px;
+  border-radius: 25px;
+}
+
+#leftScreen {
+  @extend %screenDisplay;
+}
+
+#rightScreen {
+  @extend %screenDisplay;
 }
 
 .light {
@@ -38,6 +58,9 @@ div {
     turquoise,
     #4d9de0);
 }
+
+/* MAIN BODY OF POKEDEX */
+
 #rightBody {
   margin-left: 500px;
 }
@@ -46,14 +69,18 @@ div {
   float: left;
 }
 
+/* LITTLE PIECE STICKING OUT ON TOP */
+
 #topLeft {
   width: 500px;
   height:100px;
-  background-color: crimson;
+  background-color: $offMainColor;
   border-radius: 50px 50px 0px 0px;
   display: flex;
   align-items: center;
 }
+
+/* POKEBALL IMAGE */
 
 #pokeBall {
   width: 100px;
@@ -61,6 +88,8 @@ div {
   margin-top: 650px;
   margin-left: 200px;
 }
+
+/* POKEMON DISPLAYS */
 
 img {
   width: 400px;
@@ -75,27 +104,10 @@ img {
   text-align: center;
 }
 
-.screen {
-  width: 400px;
-  height: 400px;
-  background-color: honeydew;
-  margin: 50px;
-  border-radius: 25px;
-}
+/* BUTTONS */
 
-#leftScreen {
-  width: 350px;
-  height: 350px;
-  margin: 25px;
-  border: none;
-
-}
-
-#rightScreen {
-  width: 350px;
-  height: 350px;
-  margin: 25px;
-  border: none;
+.material-icons {
+  @extend %icons;
 }
 .buttonArray {
   border: none;
@@ -106,29 +118,19 @@ img {
   align-items: center;
 }
 
-.rightButton {
-  background-color: turquoise;
-  height: 75px;
-  width: 75px;
-  border-radius: 5px;
-  box-shadow: 0 5px #598381;
-}
+/* BUTTONS ON LEFT */
 
-.rightButton:active {
-  box-shadow: 0 0 #598381;
-  top: 17px;
-}
 .leftButton {
-  background-color: blue;
+  background-color: $leftButtonColor;
   height: 75px;
   width: 75px;
   border-radius: 50%;
   margin-left: 150px;
-  box-shadow: 0 5px #247ba0
+  box-shadow: 0 5px $leftButtonColorShadow;
 }
 
 .leftButton:active {
-  box-shadow: 0 0 #247ba0;
+  box-shadow: 0 0 $leftButtonColorShadow;
   top: 17px;
 }
 
@@ -139,7 +141,7 @@ img {
   width: 0px;
   height: 0px;
   border-top: 40px solid transparent;
-	border-right: 80px solid green;
+	border-right: 80px solid $switchButtonColor;
 	border-bottom: 40px solid transparent;
 }
 
@@ -149,13 +151,31 @@ img {
   width: 0px;
   height: 0px;
   border-top: 40px solid transparent;
-	border-left: 80px solid green;
+	border-left: 80px solid $switchButtonColor;
 	border-bottom: 40px solid transparent;
 }
 
-
 #newPic {
   margin-left: 275px;
+}
+
+#abilities {
+  margin-left: 350px
+}
+
+/* BUTTONS ON RIGHT */
+
+.rightButton {
+  background-color: $rightButtonColor;
+  height: 75px;
+  width: 75px;
+  border-radius: 5px;
+  box-shadow: 0 5px $rightButtonColorShadow;
+}
+
+.rightButton:active {
+  box-shadow: 0 0 $rightButtonColorShadow;
+  top: 17px;
 }
 
 #stats {
@@ -166,17 +186,14 @@ img {
   margin-left: 200px;
 }
 
-#powerButtonPic {
-  margin: auto;
-  margin-top: 5px;
-  display: block;
-  height: 60px;
-  width: 60px;
-}
-
-#abilities {
-  margin-left: 350px
-}
+// #powerButtonPic {
+//   margin: auto;
+//   margin-top: 5px;
+//   display: block;
+//   height: 60px;
+//   width: 60px;
+// }
+/* INPUT FOR SEARCHING POKEMON */
 
 form {
   margin-top: 670px;
