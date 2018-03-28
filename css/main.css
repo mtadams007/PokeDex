@@ -81,13 +81,10 @@ h2 {
       box-shadow: 0 0 orange;
       top: 17px; }
   .buttonArray .rightButton {
-    background-color: turquoise;
-    height: 75px;
-    width: 75px;
-    border-radius: 5px;
-    box-shadow: 0 5px #598381; }
+    background-color: yellow;
+    box-shadow: 0 5px orange; }
     .buttonArray .rightButton:active {
-      box-shadow: 0 0 #598381;
+      box-shadow: 0 0 orange;
       top: 17px; }
   .buttonArray #previous {
     border: none;
@@ -96,7 +93,7 @@ h2 {
     width: 0px;
     height: 0px;
     border-top: 40px solid transparent;
-    border-right: 80px solid blue;
+    border-right: 80px solid black;
     border-bottom: 40px solid transparent; }
   .buttonArray #next {
     border: none;
@@ -104,7 +101,7 @@ h2 {
     width: 0px;
     height: 0px;
     border-top: 40px solid transparent;
-    border-left: 80px solid blue;
+    border-left: 80px solid black;
     border-bottom: 40px solid transparent; }
   .buttonArray #newPic {
     margin-left: 275px; }
@@ -132,6 +129,18 @@ form {
     background-color: honeydew;
     font-family: pokemon-font; }
 
+#powerButton {
+  background-color: limegreen;
+  box-shadow: 0 5px green; }
+  #powerButton:active {
+    box-shadow: 0 0 green;
+    top: 17px; }
+
+.buttonArray .rightButton, #powerButton {
+  height: 75px;
+  width: 75px;
+  border-radius: 5px; }
+
 #pokeBall {
   width: 100px;
   height: 100px;
@@ -143,5 +152,21 @@ img {
   height: 400px;
   margin-top: -50px;
   margin-left: -20px; }
+
+#pic {
+  animation: appear 1s; }
+
+@keyframes appear {
+  0% {
+    width: 10%;
+    height: 10%;
+    margin-top: 300px; }
+  50% {
+    margin-left: 30px; }
+  100% {
+    width: 115%;
+    height: 115%;
+    margin-top: -50px;
+    margin-left: -20px; } }
 
 /*# sourceMappingURL=main.css.map */

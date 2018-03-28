@@ -18,15 +18,14 @@
     }
   }
   .rightButton {
-    background-color: $rightButtonColor;
-    height: 75px;
-    width: 75px;
-    border-radius: 5px;
-    box-shadow: 0 5px $rightButtonColorShadow;
+    @extend %rightButtonStyles;
+    background-color: $leftButtonColor;
+    box-shadow: 0 5px $leftButtonColorShadow;
     &:active {
-      box-shadow: 0 0 $rightButtonColorShadow;
+      box-shadow: 0 0 $leftButtonColorShadow;
       top: 17px;
     }
+
   }
   #previous {
     border: none;
@@ -85,4 +84,18 @@ form {
     background-color: $screenColor;
     font-family: pokemon-font;
   }
+}
+#powerButton {
+  @extend %rightButtonStyles;
+  background-color: $rightButtonColor;
+  box-shadow: 0 5px $rightButtonColorShadow;
+  &:active {
+    box-shadow: 0 0 $rightButtonColorShadow;
+    top: 17px;
+}
+}
+%rightButtonStyles {
+  height: 75px;
+  width: 75px;
+  border-radius: 5px;
 }
