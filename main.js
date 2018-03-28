@@ -155,14 +155,6 @@ $('#stats').click(function(e) {
 })
 
 
-
-
-
-
-
-
-
-
 //SUB FUNCTIONS
 
 

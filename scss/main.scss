@@ -1,17 +1,28 @@
 @import "partials/colors";
 @import "partials/dimensions";
 
+
 body {
   display: inline;
   text-transform: uppercase;
+  font-family: pokemon-font;
+  h3 {
+    font-size: 15px;
+  }
 }
 
+h2 {
+  font-size: 30px;
+}
 div {
   border: 1px solid black;
   position: absolute;
 }
 
-
+h1 {
+  margin-top: -12px;
+  font-size: 30px;
+}
 .frame {
   background-color: $mainColor;
   width: 500px;
@@ -106,9 +117,10 @@ img {
 
 /* BUTTONS */
 
-.material-icons {
-  @extend %icons;
-}
+// .material-icons {
+//   @extend %icons !optional;
+// }
+
 .buttonArray {
   border: none;
   width: 500px;
@@ -186,6 +198,10 @@ img {
   margin-left: 200px;
 }
 
+.material-icons {
+  margin-left: 7px;
+  margin-top: 7px;
+}
 // #powerButtonPic {
 //   margin: auto;
 //   margin-top: 5px;
@@ -193,17 +209,23 @@ img {
 //   height: 60px;
 //   width: 60px;
 // }
+
 /* INPUT FOR SEARCHING POKEMON */
 
 form {
   margin-top: 670px;
   margin-left: 100px;
+  width: 300px;
   font-size: 40px;
   height: 40px;
 }
 
-input {
-  font-size: 40px;
+#searchField {
+  border-bottom: none;
+  font-size: 25px;
   width: 300px;
   text-transform: uppercase;
+  background-color: $screenColor;
+  font-family: pokemon-font;
+
 }
