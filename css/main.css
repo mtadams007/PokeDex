@@ -24,7 +24,7 @@ body {
     margin: 50px;
     border-radius: 25px; }
   body #rightBody {
-    background-color: transparent;
+    background-color: red;
     margin-left: 500px; }
   body #topLeft {
     width: 500px;
@@ -40,15 +40,15 @@ body {
       margin-top: -50px;
       text-align: center; }
 
-.hideMe {
-  backface-visibility: hidden; }
+#toggleButton {
+  width: 75px;
+  height: 25px;
+  border-radius: 25%;
+  margin-left: 400px;
+  margin-top: 20px;
+  background-color: grey; }
 
 #front {
-  width: 500px;
-  height: 800px;
-  border-radius: 0px 0px 30px 30px; }
-
-#back {
   width: 500px;
   height: 800px;
   border-radius: 0px 0px 30px 30px; }
@@ -88,6 +88,9 @@ h2 {
   margin-left: 20px;
   /* background-color: yellow; */
   background: radial-gradient(circle, #ccffff, #34e4ea, #0496ff); }
+
+.hideMe {
+  backface-visibility: hidden; }
 
 .buttonArray {
   border: none;
@@ -197,7 +200,7 @@ img {
     margin-left: -20px; } }
 .close {
   transition: transform 5s;
-  transform: rotateY(-180deg);
+  transform: rotateY(180deg);
   transform-origin: 0% 100%;
   transform-style: preserve-3d; }
 

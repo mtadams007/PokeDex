@@ -21,11 +21,10 @@ body {
     border-radius: 25px;
   }
   #rightBody {
-    background-color: transparent;
+    background-color: red;
     margin-left: 500px;
     #rightScreen {
       @extend %screenDisplay;
-
     }
   }
   #topLeft {
@@ -49,22 +48,22 @@ body {
   }
 }
 
-.hideMe {
-  backface-visibility: hidden;
+#toggleButton {
+  width: 75px;
+  height: 25px;
+  border-radius: 25%;
+  margin-left: 400px;
+  margin-top: 20px;
+  background-color: grey;
 }
+
+
 
 #front {
 //   transform: rotateY(180deg);
   width: 500px;
   height: 800px;
   border-radius: 0px 0px 30px 30px;
+  // background-color: $mainColor;
   // backface-visibility: hidden;
-}
-#back {
-  width: 500px;
-  height: 800px;
-  border-radius: 0px 0px 30px 30px;
-  // background-color: black;
-  // backface-visibility: hidden;
-  // transform: rotateY(180deg);
 }

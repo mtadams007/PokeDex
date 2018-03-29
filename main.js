@@ -9,13 +9,9 @@ let isFront = true;
 //checks if the pokedex is on or off
 let isOff = true;
 
-let isClosed = true;
 // CLASSES
 
-$('body').on('click', function(e) {
-  console.log("clicked")
-  $('.open, .close').toggleClass("open close");
-})
+
 //construct a trainer
 class Trainer {
   constructor(arr) {
@@ -159,7 +155,10 @@ $('#stats').click(function(e) {
   displayStats(colonel[p]);
 })
 
-
+$('#toggleButton').on('click', function(e) {
+  console.log("clicked")
+  $('.open, .close').toggleClass("open close");
+})
 //SUB FUNCTIONS
 
 

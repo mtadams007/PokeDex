@@ -12,7 +12,7 @@
 
 .close {
   transition: transform 5s;
-  transform: rotateY(-180deg);
+  transform: rotateY(180deg);
   transform-origin: 0% 100%;
   transform-style: preserve-3d;
 }
