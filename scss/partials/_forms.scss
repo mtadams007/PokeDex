@@ -32,3 +32,12 @@ form {
 #changeTrainer {
   margin-top: 100px;
 }
+
+.hiddenForm{
+  display: none;
+
+}
+.visibleForm{
+  display: block;
+  animation: formAppear 2s;
+}

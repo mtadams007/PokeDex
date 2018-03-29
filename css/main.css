@@ -188,6 +188,11 @@ img {
     height: 115%;
     margin-top: -55px;
     margin-left: -20px; } }
+@keyframes formAppear {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 .close {
   transition: transform 1s;
   transform: rotateY(180deg);
@@ -221,5 +226,12 @@ form {
 
 #changeTrainer {
   margin-top: 100px; }
+
+.hiddenForm {
+  display: none; }
+
+.visibleForm {
+  display: block;
+  animation: formAppear 2s; }
 
 /*# sourceMappingURL=main.css.map */

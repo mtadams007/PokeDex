@@ -10,6 +10,11 @@
   margin-left: -20px;}
 }
 
+@keyframes formAppear {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 .close {
   transition: transform 1s;
   transform: rotateY(180deg);

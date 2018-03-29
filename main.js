@@ -93,13 +93,17 @@ $('#previous').click(function(e) {
   } else {
     currentPokemon--;
   }
+  if (count(colonel)>1) {
   changePokemon();
+  }
 })
 
 //changes pokemon forwards
 $('#next').click(function(e) {
   currentPokemon++;
+  if (count(colonel)>1) {
   changePokemon();
+  }
 })
 
 //plays the displayed pokemons sound
@@ -136,8 +140,10 @@ $('#search').submit(function(e) {
 $('#addNewPoke').submit(function(e) {
   e.preventDefault();
   let newFriend = $('#addMe').val();
-  addPoke([newFriend]);
-  $('input').val("")
+  addPoke([newFriend]).done(function(e) {
+    makeTrainer();
+  });
+  $('input').val("");
 })
 
 //Deletes previous army and starts a new PokeDex
@@ -146,7 +152,7 @@ $('#changeTrainer').submit(function(e) {
   e.preventDefault();
   let newFriend = $('#changeMe').val();
   createPoke([newFriend]);
-  $('input').val("")
+  $('input').val("");
 })
 // RIGHT ARRAY OF BUTTONS
 
@@ -187,6 +193,7 @@ $('#stats').click(function(e) {
 
 $('#toggleButton').on('click', function(e) {
   $('.open, .close').toggleClass("open close");
+  $('.hiddenForm, .visibleForm').toggleClass("hiddenForm, visibleForm");
 })
 //SUB FUNCTIONS
 
