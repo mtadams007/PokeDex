@@ -127,10 +127,10 @@ $('#search').submit(function(e) {
   pokeSearch = pokeSearch.toLowerCase();
   let foundPokemon = findPokemon(colonel, pokeSearch);
   if (foundPokemon === 'bummer dude') {
-    $('input').val("NOT FOUND")
+    $('#searchField').val("NOT FOUND")
   } else {
     changePokemon();
-    $('input').val("")
+    $('#searchField').val("")
   }
 })
 
@@ -142,7 +142,7 @@ $('#addNewPoke').submit(function(e) {
   addPoke([newFriend]).done(function(e) {
     makeTrainer();
   });
-  $('input').val("");
+  $('#addMe').val("");
 })
 
 //Deletes previous army and starts a new PokeDex
@@ -151,7 +151,7 @@ $('#changeTrainer').submit(function(e) {
   e.preventDefault();
   let newFriend = $('#changeMe').val();
   createPoke([newFriend]);
-  $('input').val("");
+  $('#changeMe').val("");
 })
 // RIGHT ARRAY OF BUTTONS
 
