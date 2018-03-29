@@ -114,10 +114,12 @@ $('#newPic').click(function(e) {
   changePic();
 })
 
+// Search input
 
 $('#search').submit(function(e) {
   e.preventDefault();
-  let pokeSearch = $('input').val();
+  let pokeSearch = $('#searchField').val();
+  console.log(pokeSearch)
   pokeSearch = pokeSearch.toLowerCase();
   let foundPokemon = findPokemon(colonel, pokeSearch);
   if (foundPokemon === 'bummer dude') {
@@ -128,6 +130,20 @@ $('#search').submit(function(e) {
   }
 })
 
+$('#addNewPoke').submit(function(e) {
+  e.preventDefault();
+  let newFriend = $('#addMe').val();
+  console.log(newFriend);
+  addPoke([newFriend]);
+  $('input').val("")
+})
+
+$('#changeTrainer').submit(function(e) {
+  e.preventDefault();
+  let newFriend = $('#changeMe').val();
+  createPoke([newFriend]);
+  $('input').val("")
+})
 // RIGHT ARRAY OF BUTTONS
 
 //shows abilities upon clicking button
