@@ -11,7 +11,6 @@ let isOff = true;
 
 // CLASSES
 
-
 //construct a trainer
 class Trainer {
   constructor(arr) {
