@@ -59,9 +59,9 @@ class Pokemon {
 
 //AJAX FUNCTION
 
-//creates one pokemon through ajax
-let createPoke = (num) => {
-  army = [];
+//to add New pokemon to an existing Trainer
+
+let addPoke = (num) => {
   return $.ajax({
       url: `https://pokeapi.co/api/v2/pokemon/${num}`,
       type: 'GET',
@@ -75,13 +75,23 @@ let createPoke = (num) => {
   })
 }
 
+//creates one pokemon through ajax
+let createPoke = (num) => {
+  army = [];
+  addPoke(num);
+}
+
 //BUTTON RULES
 
 // LEFT ARRAY OF buttons
 
 //changes pokemon backwards
 $('#previous').click(function(e) {
-  currentPokemon--;
+  if (currentPokemon === 0) {
+    currentPokemon = army.length - 1;
+  } else {
+    currentPokemon--;
+  }
   changePokemon();
 })
 
@@ -126,13 +136,13 @@ $('#abilities').click(function(e) {
   let p = whichPokemon(colonel);
   let skillz = getAbilities(colonel[p]);
   if (skillz.length === 3) {
-    $('#rightScreen').html(`<h3>${skillz[2]}</h3><h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
+    $('#rightScreen').html(`<h3 class="hideMe">${skillz[2]}</h3><h3 class="hideMe">${skillz[1]}</h3><h3 class="hideMe">${skillz[0]}</h3>`);
   } else if (skillz.length === 2) {
-    $('#rightScreen').html(`<h3>${skillz[1]}</h3><h3>${skillz[0]}</h3>`);
+    $('#rightScreen').html(`<h3 class="hideMe">${skillz[1]}</h3><h3 class="hideMe">${skillz[0]}</h3>`);
   } else {
-    $('#rightScreen').html(`<h3>${skillz[0]}</h3>`);
+    $('#rightScreen').html(`<h3 class="hideMe">${skillz[0]}</h3>`);
   }
-  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>ABILITIES</h1>`)
+  $('#rightScreen').prepend(`<h1 id='#rightDescriptor' class="hideMe">ABILITIES</h1>`)
 })
 
 //Turns on pokedex and creates my trainer
@@ -156,7 +166,6 @@ $('#stats').click(function(e) {
 })
 
 $('#toggleButton').on('click', function(e) {
-  console.log("clicked")
   $('.open, .close').toggleClass("open close");
 })
 //SUB FUNCTIONS
@@ -226,8 +235,8 @@ let changePic = () => {
 //shows the stats of a pokemon
 let displayStats = (obj) => {
   $('#rightScreen').html('');
-  $('#rightScreen').append(`<h3> HP: ${obj.hp}</h3><h3> ATTACK: ${obj.attack}</h3><h3> DEFENSE: ${obj.defense}</h3><h3> SPECIAL ATTACK: ${obj.specialAttack}</h3><h3> SPECIAL DEFENSE: ${obj.specialDefense}</h3><h3> SPEED: ${obj.speed}</h3>`);
-  $('#rightScreen').prepend(`<h1 id='#rightDescriptor'>STATS</h1>`)
+  $('#rightScreen').append(`<h3 class="hideMe"> HP: ${obj.hp}</h3><h3 class="hideMe"> ATTACK: ${obj.attack}</h3><h3 class="hideMe"> DEFENSE: ${obj.defense}</h3><h3 class="hideMe"> SPECIAL ATTACK: ${obj.specialAttack}</h3><h3 class="hideMe"> SPECIAL DEFENSE: ${obj.specialDefense}</h3><h3 class="hideMe"> SPEED: ${obj.speed}</h3>`);
+  $('#rightScreen').prepend(`<h1 id='#rightDescriptor' class="hideMe">STATS</h1>`)
 }
 
 //pull abilities from pokemon
