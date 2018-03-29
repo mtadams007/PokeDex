@@ -104,20 +104,20 @@ h2 {
   display: flex;
   align-items: center; }
   .buttonArray .leftButton {
-    background-color: yellow;
+    background-color: #5a88f6;
     height: 75px;
     width: 75px;
     border-radius: 50%;
     margin-left: 150px;
-    box-shadow: 0 5px orange; }
+    box-shadow: 0 5px blue; }
     .buttonArray .leftButton:active {
-      box-shadow: 0 0 orange;
+      box-shadow: 0 0 blue;
       top: 17px; }
   .buttonArray .rightButton {
-    background-color: yellow;
-    box-shadow: 0 5px orange; }
+    background-color: #5a88f6;
+    box-shadow: 0 5px blue; }
     .buttonArray .rightButton:active {
-      box-shadow: 0 0 orange;
+      box-shadow: 0 0 blue;
       top: 17px; }
   .buttonArray #previous {
     border: none;
@@ -149,39 +149,17 @@ h2 {
     margin-left: 7px;
     margin-top: 7px; }
 
-form {
-  margin-top: 670px;
-  margin-left: 100px;
-  width: 300px;
-  font-size: 40px;
-  height: 40px; }
-
 #powerButton {
-  background-color: limegreen;
-  box-shadow: 0 5px green; }
+  background-color: yellow;
+  box-shadow: 0 5px orange; }
   #powerButton:active {
-    box-shadow: 0 0 green;
+    box-shadow: 0 0 orange;
     top: 17px; }
 
 .buttonArray .rightButton, #powerButton {
   height: 75px;
   width: 75px;
   border-radius: 5px; }
-
-form #searchField, form #addMe, form #changeMe {
-  border-bottom: none;
-  font-size: 25px;
-  width: 300px;
-  text-transform: uppercase;
-  background-color: honeydew;
-  font-family: pokemon-font; }
-
-#moreForms {
-  margin-left: 1000px;
-  margin-top: -500px; }
-
-#changeTrainer {
-  margin-top: 100px; }
 
 #pokeBall {
   width: 100px;
@@ -192,7 +170,7 @@ form #searchField, form #addMe, form #changeMe {
 img {
   width: 400px;
   height: 400px;
-  margin-top: -50px;
+  margin-top: -55px;
   margin-left: -20px; }
 
 #pic {
@@ -208,18 +186,40 @@ img {
   100% {
     width: 115%;
     height: 115%;
-    margin-top: -50px;
+    margin-top: -55px;
     margin-left: -20px; } }
 .close {
-  transition: transform 5s;
+  transition: transform 1s;
   transform: rotateY(180deg);
   transform-origin: 0% 100%;
   transform-style: preserve-3d; }
 
 .open {
-  transition: transform 5s;
+  transition: transform 2s;
   transform: rotateY(0deg);
   transform-origin: 0% 0%;
   transform-style: preserve-3d; }
+
+form #searchField, form #addMe, form #changeMe {
+  border-bottom: none;
+  font-size: 25px;
+  width: 300px;
+  text-transform: uppercase;
+  background-color: honeydew;
+  font-family: pokemon-font; }
+
+form {
+  margin-top: 670px;
+  margin-left: 100px;
+  width: 300px;
+  font-size: 40px;
+  height: 40px; }
+
+#moreForms {
+  margin-left: 1000px;
+  margin-top: -500px; }
+
+#changeTrainer {
+  margin-top: 100px; }
 
 /*# sourceMappingURL=main.css.map */

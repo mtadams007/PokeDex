@@ -6,19 +6,19 @@
   50% {margin-left: 30px;}
   100% {width: 115%;
   height: 115%;
-  margin-top: -50px;
+  margin-top: -55px;
   margin-left: -20px;}
 }
 
 .close {
-  transition: transform 5s;
+  transition: transform 1s;
   transform: rotateY(180deg);
   transform-origin: 0% 100%;
   transform-style: preserve-3d;
 }
 
 .open {
-  transition: transform 5s;
+  transition: transform 2s;
   transform: rotateY(0deg);
   transform-origin: 0% 0%;
   transform-style: preserve-3d;

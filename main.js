@@ -87,6 +87,7 @@ let createPoke = (num) => {
 
 //changes pokemon backwards
 $('#previous').click(function(e) {
+  //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
   if (currentPokemon === 0) {
     currentPokemon = army.length - 1;
   } else {
@@ -130,13 +131,16 @@ $('#search').submit(function(e) {
   }
 })
 
+//Adds a new Pokemon to the PokeDex
+
 $('#addNewPoke').submit(function(e) {
   e.preventDefault();
   let newFriend = $('#addMe').val();
-  console.log(newFriend);
   addPoke([newFriend]);
   $('input').val("")
 })
+
+//Deletes previous army and starts a new PokeDex
 
 $('#changeTrainer').submit(function(e) {
   e.preventDefault();
@@ -230,7 +234,7 @@ let changePokemon = () => {
   $('#rightScreen').html('');
   let p = whichPokemon(colonel);
   $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id='pic'>`);
-  $('#leftScreen').append(`<h2 id='pokeName'>${colonel[p].name}</h2>`);
+  $('#leftScreen').append(`<h2 id='pokeName'>No ${colonel[p].number}:  ${colonel[p].name}</h2>`);
   displayStats(colonel[p]);
   isFront = true;
 }
