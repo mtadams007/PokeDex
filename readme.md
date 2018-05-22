@@ -9,7 +9,10 @@ Pushing the black arrows switches between pokemon. The blue button with the volu
 
 The search bar at the bottom left of the pokedex can search for pokemon on the pokedex. There are two search bars outside the pokedex. The top one labeled "add a new pokemon" adds a new pokemon to the pokedex. The "replace pokedex" form deletes the current pokedex and adds a new pokemon to it. One must switch it on and off again to delete data.
 
-Materialize was used for the button icons, otherwise I used JavaScript, JQuery, SASS, and HTML.
+Materialize was used for the button icons, otherwise I used JavaScript, JQuery, SASS, and HTML. It makes AJAX API calls to https://pokeapi.co/.
+
+The project is deployed on github as:
+https://mtadams007.github.io/PokeDex/
 
 # Acknowledgments
 
